@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+h1{
+  font-size: 2.5rem;
+  line-height: .9;
+  text-align: center;
+  margin-top: 10rem;
+}
+form { 
+  border: 1px solid #f1f1f1; 
+  width: 300px; 
+  margin: 0 auto; 
+  border-radius: 1rem;
+  box-shadow: 0 0 3px black;
+}
+
+.container {
+  padding: 16px;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+input[type=text]::placeholder, input[type=password]::placeholder {
+  font-size: 14px;
+}
+
+button {
+  background-color: gray;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+</style>
+</head>
+<body>
+<div class="login">
+  <h1>Login</h1>
+</div>
+
+
+<form method="post" id="loginForm">
+  <div class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+        
+    <button value="Login" onclick="func()">Login</button>
+  </div>
+</form>
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+  
+    var username = document.getElementsByName("username")[0].value;
+    var password = document.getElementsByName("password")[0].value;
+  
+    if (username === "admin" && password === "admin") {
+      window.location.assign("/predictions"); // Redirect to index.html
+    } else {
+      alert("Login failed");
+    }
+  });
+  </script>
+</body>
+</html>
